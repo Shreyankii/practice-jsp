@@ -1,0 +1,27 @@
+package com.authenticate;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Add")
+public class SecondPage extends HttpServlet {
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+
+        int n1 = Integer.parseInt(req.getParameter("n1"));
+        int n2 = Integer.parseInt(req.getParameter("n2"));
+        int sum = n1 + n2;
+
+        res.setContentType("text/html");
+        PrintWriter out = res.getWriter();
+        out.println("<h2>Sum = " + sum + "</h2>");
+        out.close();
+    }
+}
